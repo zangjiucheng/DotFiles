@@ -16,7 +16,6 @@ git clone https://github.com/w0rp/ale.git ~/.vim/pack/git-plugins/start/ale
 git clone https://github.com/github/copilot.vim.git \
   ~/.vim/pack/github/start/copilot.vim
 
-mkdir -p ~/.vim/pack/tpope/start
-cd ~/.vim/pack/tpope/start
-git clone https://tpope.io/vim/surround.git
-vim -u NONE -c "helptags surround/doc" -c q
+mkdir -p ~/.vim/colors
+curl -fLo ~/.vim/colors/habamax.vim --create-dirs \
+    https://raw.githubusercontent.com/habamax/vim-habamax/master/colors/habamax.vim
