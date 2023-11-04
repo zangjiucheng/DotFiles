@@ -47,29 +47,6 @@
 
   # environment.pathsToLink = ["/libexec"];
 
-  # services.xserver = {
-  #   enable = true;
-  #   
-  #   desktopManager = {
-  #     xterm.enable = false;
-  #   };
-  # 
-  #   displayManager = {
-  #     defaultSession = "none+i3";
-  #   };
-
-  #   windowManager.i3 = {
-  #     enable = true; 
-  #     extraPackages = with pkgs; [
-  #       dmenu
-  #       i3status
-  #       i3lock
-  #       i3blocks
-  #     ];
-  #   };
-  # };
-  
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
@@ -85,7 +62,7 @@
   # services.xserver.libinput.enable = true;
 
   # flakes Settings
-  # nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jiucheng = {
@@ -104,7 +81,14 @@
   #  home.packages = [ pkgs.atool pkgs.httpie ];
   #  programs.bash.enable = true;
   #};
-   
+
+  i18n.inputMethod = {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [
+	  libpinyin
+      ];
+  };
+ 
   nixpkgs.config = {
 
    allowUnfree = true;
@@ -113,23 +97,23 @@
      enableGoogleTalkPlugin = true; 
      enableAdobeFlash = true;
    };
-
-   chromium = {
-   };
-
+ 
   };
+  
+  # Font Install
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  # System package install
   environment.systemPackages = with pkgs; [
 
     # TextEdit
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
-    # Font Install
-    fira-code
-    fira-code-symbols
-    
     # Tool Install
     wget
     neofetch
@@ -137,22 +121,50 @@
     pkg
     git
     unzip
+    flameshot
+    light
+    autorandr
+    xcompmgr
+    ranger
 
     # DWM Setup 
     dmenu
-    st
+    # st
+    (st.overrideAttrs(oldAttrs: rec {
+    # ligatures dependency
+        buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
+        patches = [
+          # ligatures patch
+          #(fetchpatch {
+          #  url = "https://st.suckless.org/patches/ligatures/0.8.3/st-ligatures-20200430-0.8.3.diff";
+          #  sha256 = "67b668c77677bfcaff42031e2656ce9cf173275e1dfd6f72587e8e8726298f09";
+          #})
+        ];
+        # version controlled config file
+	configFile = writeText "config.def.h" (builtins.readFile /home/jiucheng/DotFiles/suckless/st/config.def.h);
+	# Or one pulled from GitHub
+   	# configFile = writeText "config.def.h" (builtins.readFile "${fetchFromGitHub { owner = "LukeSmithxyz"; repo = "st"; rev = "8ab3d03681479263a11b05f7f1b53157f61e8c3b"; sha256 = "1brwnyi1hr56840cdx0qw2y19hpr0haw4la9n0rqdn0r2chl8vag"; }}/config.h");
+   	postPatch = "${oldAttrs.postPatch}\n cp ${configFile} config.def.h";
+      }))
 
     # Software Useful
-    firefox chromium
+    firefox
     gimp
+    ### Only Avalible For x86-64 Machine ###
+    # spotify
+    # google-chrome 
+    # mailspring 
+    # notion-app-enhanced
+    # signal-desktop
     
     # Develop Tools 
     gnumake # make command
     vscode # IDE
     emacs # IDE
     python311 # Programming Language
-
+    racket # Programming Language
   ];
+
 
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -169,6 +181,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [ 57621 ];
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
