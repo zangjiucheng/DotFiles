@@ -3,6 +3,9 @@
 # Version 1.1
 # Date: 2023-10-24
 
+# Input two arguments, the first one is the snapshot name, the second one is the backup name.
+# Used to backup the snapshot. (Will not be clear by clearZFS.sh)
+#
 zfs rename rpool/var/spool@zfs-auto-snap_$1 rpool/var/spool@BK_$2
 
 zfs rename rpool/var/log@zfs-auto-snap_$1 rpool/var/log@BK_$2

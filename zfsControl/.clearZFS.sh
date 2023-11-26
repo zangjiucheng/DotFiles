@@ -1,7 +1,9 @@
 #!/bin/bash
+# author:Jiucheng Zang
+# Version 1.1
+# Date: 2023-10-24
 
-# This script will clear all ZFS pools and volumes on the system.
-
+# This script will clear all ZFS pools (Only zfs-auto generate) and volumes on the system (save for passed few one).
 
 zfs list -t snapshot -o name | grep rpool/var/spool@zfs-auto     | tac | tail -n +8 | xargs -n 1 zfs destroy -r
 zfs list -t snapshot -o name | grep rpool/var/log@zfs-auto       | tac | tail -n +3 | xargs -n 1 zfs destroy -r
