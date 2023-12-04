@@ -1,16 +1,18 @@
 " Set vim basic
+:set regexpengine=1
 :set rnu 
 :set smarttab 
 :set shiftwidth=4 
 :set mouse=a
 :set backspace=2
-
+:set lazyredraw
+:colorscheme habamax
 " Set <Leader> key binding
 :let mapleader=","
 :set timeout timeoutlen=1500
-:set cursorline
 
-:colorscheme habamax
+" Set Key Mapping
+inoremap jj <Esc>
 
 " Plug import
 call plug#begin()
@@ -21,6 +23,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'majutsushi/tagbar'
+Plug 'lervag/vimtex'
 call plug#end()
 
 " :PlugInstall
@@ -80,7 +83,7 @@ set tags=tags
 autocmd VimEnter * Tagbar
 
 " Compile and Run
-map <silent> <F5> :call CompileRunGcc()<CR>
+map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
@@ -89,8 +92,6 @@ func! CompileRunGcc()
     elseif &filetype == 'cpp'
 	exec "!g++ % -o %<"
 	exec "!time ./%<"
-    elseif &filetype == 'racket'
-	exec "!raco make %"
     elseif &filetype == 'java'
 	exec "!javac %"
 	exec "!time java -cp %:p:h %:t:r"
@@ -98,6 +99,9 @@ func! CompileRunGcc()
 	exec "!time bash %"
     elseif &filetype == 'python'
 	exec "!time python3 %"
+    elseif &filetype == 'racket'
+	exec "!clear"
+	exec "!time racket %"
     elseif &filetype == 'html'
 	exec "!firefox % &"
     elseif &filetype == 'go'
@@ -108,6 +112,3 @@ func! CompileRunGcc()
 	exec "!firefox %.html &"
     endif
 endfunc
-
-
-map <C-s> :shell <CR>
