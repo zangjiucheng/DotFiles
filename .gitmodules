@@ -1,0 +1,3 @@
+[submodule "driver/rtl8821ce"]
+	path = driver/rtl8821ce
+	url = https://github.com/tomaspinho/rtl8821ce.git
