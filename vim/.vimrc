@@ -7,6 +7,8 @@
 :set backspace=2
 :set lazyredraw
 :set spell
+:set modifiable
+:set write
 " Set <Leader> key binding
 :let mapleader=","
 :set timeout timeoutlen=1500
@@ -26,6 +28,7 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'majutsushi/tagbar'
 Plug 'lervag/vimtex'
 Plug 'tomasiser/vim-code-dark'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " :PlugInstall
@@ -87,6 +90,9 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 set tags=tags
 autocmd VimEnter * Tagbar
 
+" Disable Copilot at startup
+:let g:copilot_enabled = 0
+
 " Compile and Run
 map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -117,3 +123,4 @@ func! CompileRunGcc()
 	exec "!firefox %.html &"
     endif
 endfunc
+

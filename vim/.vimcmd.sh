@@ -16,6 +16,7 @@ git clone https://github.com/w0rp/ale.git ~/.vim/pack/git-plugins/start/ale
 git clone https://github.com/github/copilot.vim.git \
   ~/.vim/pack/github/start/copilot.vim
 
-mkdir -p ~/.vim/colors
-curl -fLo ~/.vim/colors/habamax.vim --create-dirs \
-    https://raw.githubusercontent.com/habamax/vim-habamax/master/colors/habamax.vim
+git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe 
+cd ~/.vim/plugged/YouCompleteMe
+git submodule update --init --recursive
+/usr/bin/python3 ./install.py --clangd-completer
