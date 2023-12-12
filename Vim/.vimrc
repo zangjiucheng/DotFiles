@@ -6,10 +6,11 @@
 :set mouse=a
 :set backspace=2
 :set lazyredraw
-:colorscheme habamax
+:set spell
 " Set <Leader> key binding
 :let mapleader=","
 :set timeout timeoutlen=1500
+:set pastetoggle=<F2>
 
 " Set Key Mapping
 inoremap jj <Esc>
@@ -24,6 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'majutsushi/tagbar'
 Plug 'lervag/vimtex'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 " :PlugInstall
@@ -31,6 +33,9 @@ call plug#end()
 " Require in 'Nerdcommenter'
 filetype plugin on
 
+" Code Theme Setup
+:colorscheme codedark
+" :colorscheme habamax
 
 " NERD Tree Setup
 autocmd StdinReadPre * let s:set_in=1
