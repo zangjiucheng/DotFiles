@@ -1,4 +1,5 @@
 #!/bin/bash
+
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -16,7 +17,10 @@ git clone https://github.com/w0rp/ale.git ~/.vim/pack/git-plugins/start/ale
 git clone https://github.com/github/copilot.vim.git \
   ~/.vim/pack/github/start/copilot.vim
 
-git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe 
-cd ~/.vim/plugged/YouCompleteMe
-git submodule update --init --recursive
-/usr/bin/python3 ./install.py --clangd-completer
+mkdir -p ~/.vim/pack/tpope/start
+cd ~/.vim/pack/tpope/start
+git clone https://tpope.io/vim/surround.git
+
+# cd ~/.vim/plugged/YouCompleteMe
+# git submodule update --init --recursive
+# /usr/bin/python3 ./install.py --clangd-completer
