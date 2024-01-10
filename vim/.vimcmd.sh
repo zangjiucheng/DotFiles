@@ -21,6 +21,11 @@ mkdir -p ~/.vim/pack/tpope/start
 cd ~/.vim/pack/tpope/start
 git clone https://tpope.io/vim/surround.git
 
+mkdir -p ~/.vim/syntax
+cd ~/.vim/syntax
+wget https://raw.githubusercontent.com/tinco/haskell.vim/master/syntax/haskell.vim
+
+
 # cd ~/.vim/plugged/YouCompleteMe
 # git submodule update --init --recursive
 # /usr/bin/python3 ./install.py --clangd-completer
