@@ -22,7 +22,7 @@ unset __mamba_setup
 export CLICOLOR=1
 export LSCOLORS=ExGxFxdaCxDaDahbadeche
 autoload -U colors && colors
-PROMPT="%{$fg_bold[magenta]%}%n%{$fg_bold[yellow]%}λ%{$fg_bold[magenta]%}%m %{$fg_bold[green]%}%1~ %{$reset_color%}"
+PROMPT="%{$fg_bold[magenta]%}%n%{$fg_bold[yellow]%}λ%{$fg_bold[magenta]%}%m %{$fg_bold[green]%}%0~ %{$reset_color%}"
 # <<< Bash End
 
 # >>> VIM >>>
