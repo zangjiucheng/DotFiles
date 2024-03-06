@@ -47,7 +47,7 @@
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
 ;;   (after! PACKAGE
-;;     (setq x y))
+;(add-to-list 'package-archives '("gnu-devel" . "https://elpa.gnu.org/devel/"));     (setq x y))
 ;;
 ;; The exceptions to this rule:
 ;;
@@ -100,3 +100,11 @@
 ;(global-set-key (kbd "s-r s-c") "!gcc -o %:ro %")
 (global-set-key (kbd "s-r s-c") 'Tex-clean)
 (setq +latex-viewers '(pdf-tools))
+
+
+(after! lsp-haskell
+  (setq lsp-haskell-formatting-provider "brittany"))
+
+(setq haskell-process-type 'cabal-new-repl)
+
+(setq haskell-stylish-on-save t)
