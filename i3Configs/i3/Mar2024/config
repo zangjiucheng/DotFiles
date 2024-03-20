@@ -34,7 +34,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 #exec --no-startup-id fcitx -d
-exec --no-startup-id copyq 
+exec --no-startup-id copyq &
+exec --no-startup-id albert &
 exec --no-startup-id xcompmgr &
 exec --no-startup-id fcitx5 &
 exec_always --no-startup-id bash ~/.wallpapper.sh
@@ -205,6 +206,7 @@ bar {
 		#background $bar-color
 		focused_workspace $focused-ws-bg $focused-ws-fg $text
 	}
+	position top
 }
 
 bindsym $mod+Shift+p move workspace to output right
@@ -233,7 +235,7 @@ bindsym $mod+p exec sh /home/jiucheng/.sleep.sh
 #bindsym $mod+Shift+z exec libreoffice
 #bindsym --release $mod+x exec --no-startup-id import /home/jiucheng/ss.png
 bindsym Print exec flameshot gui
-bindsym $mod+Shift+t exec texstudio
+bindsym $mod+Shift+t exec todoist
 bindsym $mod+Shift+b exec /opt/tor-browser/Browser/start-tor-browser
 bindsym $mod+Shift+x exec pycharm.sh
 bindsym $mod+Shift+m exec mailspring --password-store="gnome-libsecret" %U
