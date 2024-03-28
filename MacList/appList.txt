@@ -1,0 +1,104 @@
+Adobe Acrobat DC
+Adobe Audition 2023
+Adobe Bridge 2024
+Adobe Creative Cloud
+Adobe Digital Editions 4.5.app
+Adobe Digital Editions.app
+Adobe Photoshop 2023
+Adobe Photoshop 2024
+Amphetamine.app
+Android File Transfer.app
+Arc.app
+Archimedes.app
+Arduino IDE.app
+Bartender 4.app
+Bitwarden.app
+Blackmagic Proxy Generator Lite.app
+Blackmagic RAW
+Blender.app
+CKAN.app
+CLion.app
+CheatSheet.app
+Cisco
+CleanMyMac X.app
+Cutter.app
+Dash.app
+DataSpell.app
+Developer.app
+Discord.app
+Docker.app
+DreamRunner.app
+Dropbox.app
+Electrum.app
+Emacs
+Figma.app
+Final Cut Pro.app
+Frescobaldi.app
+GarageBand.app
+GeoGebra Graphing Calculator.app
+GitKraken.app
+Grammarly Desktop.app
+HP Smart.app
+Hex Fiend.app
+Hugin
+IINA.app
+KSP
+Keka.app
+Macs Fan Control.app
+Magnet.app
+Messenger.app
+Microsoft Excel.app
+Microsoft PowerPoint.app
+Microsoft Remote Desktop.app
+Microsoft Teams (work or school).app
+Microsoft Teams classic.app
+Microsoft Word.app
+MongoDB Compass.app
+Motrix.app
+MySQLWorkbench.app
+Nix Apps
+Notion.app
+Obsidian.app
+Ollama.app
+OneDrive.app
+Original Prusa Drivers
+Pages.app
+Parallels Desktop.app
+Permute 3.app
+PlayCover.app
+Publii.app
+Python 3.11
+QLMarkdown.app
+R.app
+RStudio.app
+Racket v8.10
+Raspberry Pi Imager.app
+Raycast.app
+SF Symbols beta.app
+Safari.app
+SceneBuilder.app
+Shapr3D.app
+Signal.app
+SnapMotion.app
+Spotify.app
+TeX
+TeamViewer.app
+Thunder.app
+Todoist.app
+Tor Browser.app
+Tracker.app
+UTM.app
+Unity Hub.app
+Utilities
+VNC Viewer.app
+Visual Studio Code.app
+WeChat.app
+WireGuard.app
+Wireshark.app
+Xcode.app
+balenaEtcher.app
+i4tools.app
+logioptionsplus.app
+mInstaller.app
+motionVFX
+zoom.us.app
