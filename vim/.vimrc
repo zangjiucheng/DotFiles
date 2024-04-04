@@ -43,13 +43,18 @@ filetype plugin on
 " NERD Tree Setup
 autocmd StdinReadPre * let s:set_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-map <C-t> :NERDTreeToggle <CR>
+nmap <F7> :NERDTreeToggle <CR>
+nmap <F8> :TagbarToggle<CR>
 :let g:NERDTreeWinSize=60
 " :com! -nargs=1 -bar -complete=dir Cd :cd <args> | NERDTreeCWD
 augroup DIRCHANGE
     au!
     autocmd DirChanged global :NERDTreeCWD
 augroup END
+
+" Go to tab by number
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
 
 " Nerdcommenter Setup
 " Create default mappings
@@ -86,7 +91,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " GitGutter Setup
 " autocmd VimEnter * GitGutterLineHighlightsEnable
 
-" Tagbar Setup
+" Tagbar   Setup
 set tags=tags
 autocmd VimEnter * Tagbar
 
@@ -98,7 +103,7 @@ map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
-	exec "!gcc % -o %<"
+	exec "!gcc -fdiagnostics-color=always % -std=c99 -Wall -o %<"
 	exec "!time ./%<"
     elseif &filetype == 'cpp'
 	exec "!g++ % -o %<"
@@ -121,6 +126,13 @@ func! CompileRunGcc()
     elseif &filetype == 'mkd'
 	exec "!~/.vim/markdown.pl % > %.html &"
 	exec "!firefox %.html &"
+    elseif &filetype == 'haskell'
+	exec "!ghci %"
+    elseif &filetype == 'mmix'
+	exec "!mmixal %"
+	exec "!mmix %<.mmo"
+	" exec "!mmix -f% fmt.mmo > temp.mms"
+	" exec "!cat temp.mms > %"
     endif
 endfunc
 

@@ -21,6 +21,9 @@ mkdir -p ~/.vim/pack/tpope/start
 cd ~/.vim/pack/tpope/start
 git clone https://tpope.io/vim/surround.git
 
-# cd ~/.vim/plugged/YouCompleteMe
-# git submodule update --init --recursive
-# /usr/bin/python3 ./install.py --clangd-completer
+cd ~/.vim/plugged/YouCompleteMe
+git submodule update --init --recursive
+/usr/bin/python3 ./install.py --clangd-completer
+
+mkdir -p  ~/.vim/self-pack
+cd  ~/.vim/self-pack
