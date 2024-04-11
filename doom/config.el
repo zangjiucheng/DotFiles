@@ -90,3 +90,4 @@
       )
 )
 
+(doom/set-frame-opacity 85)
