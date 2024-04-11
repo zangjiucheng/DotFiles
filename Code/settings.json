@@ -1,0 +1,99 @@
+{
+    /*  General settings */
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.inheritEnv": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.autohide": true,
+
+    /* Language specific settings */
+    "python.condaPath": "opt/miniconda3/bin/conda",
+    "python.defaultInterpreterPath": "/Users/jiucheng/.pyenv/shims/python",
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    
+    "[shellscript]": {
+        "editor.defaultFormatter": "shakram02.bash-beautify"
+    },
+    
+    "[racket]": {
+        "editor.defaultFormatter": "lishizhen.racket-fmt"
+    },
+    
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // "dart.flutterSdkPath": "/Users/jiucheng/Documents/Coding/Flutter/flutter",
+
+    "arduino.enableUSBDetection": true,
+    "arduino.path": "/opt/homebrew/bin/",
+    "arduino.commandPath": "arduino-cli",
+    "arduino.useArduinoCli": true,
+    
+    // "javafx.libPath": "/Users/jiucheng/Documents/Coding/coding-storehouse/JavaFx/test2/lib",
+
+    /* UI settings */
+    "animations.Enabled": true,
+    "animations.CursorAnimation": true,
+    "animations.Command-Palette": "None",
+    "animations.CursorAnimationOptions": {
+        "TrailLength": 5, 
+    },
+    // "apc.electron": {
+    //     "opacity": 0.95,
+    //     "transparent": true,
+    //     "backgroundColor": "#00000000",
+    //     "vibrancy": "ultra-dark"
+    // },    
+    // "apc.stylesheet": {
+    //     ".monaco-editor .cursor": "background: #ffffffaa !important; box-shadow: 0 0 70px 5px #ffffff, #ffffff 0px 0px 34px 1px; color: [#161616](https://github.com/AlexOwl/vscode-transparent-color-theme/issues/161616) !important",
+    // },
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "animations.Tabs": "Slide",
+    "animations.Active": "Indent", 
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "'Dank Mono', 'Fira Code', “Consolas”, Menlo, Monaco, 'Courier New', monospace, Fira Code",
+    "workbench.colorTheme": "Transparent Color Theme",
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.fontFamily": "monospace",
+    "editor.cursorBlinking": "expand",
+
+    /* Git settings */
+    "git.confirmSync": false,
+    "scm.alwaysShowRepositories": true,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+
+    /* Custom settings */
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+
+    "vscode-office.openOutline": true,
+
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "yaml": false
+    },
+
+    "redhat.telemetry.enabled": true,
+    "vim.vimrc.enable": true,
+    
+    "animations.Install-Method": "Apc Customize UI++",
+    "apc.imports": [
+        "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.2/dist/updateHandler.js"
+    ]
+}
