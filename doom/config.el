@@ -15,7 +15,7 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
@@ -47,7 +47,7 @@
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
 ;;   (after! PACKAGE
-;(add-to-list 'package-archives '("gnu-devel" . "https://elpa.gnu.org/devel/"));     (setq x y))
+;;     (setq x y))
 ;;
 ;; The exceptions to this rule:
 ;;
@@ -74,12 +74,10 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(custom-set-variables
+ '(markdown-command "/run/current-system/sw/bin/pandoc"))
 
-
-;; window-numbering
-(use-package! window-numbering
-  :config
-  (window-numbering-mode))
+(setq display-line-numbers-type 'relative)
 
 (map! :leader
       (:prefix "w"
@@ -92,19 +90,3 @@
       )
 )
 
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-
-(global-set-key (kbd "s-r s-r") 'racket-run)
-(global-set-key (kbd "s-\\") 'racket-insert-lambda )
-;(global-set-key (kbd "s-r s-c") "!gcc -o %:ro %")
-(global-set-key (kbd "s-r s-c") 'Tex-clean)
-(setq +latex-viewers '(pdf-tools))
-
-
-(after! lsp-haskell
-  (setq lsp-haskell-formatting-provider "brittany"))
-
-(setq haskell-process-type 'cabal-new-repl)
-
-(setq haskell-stylish-on-save t)
