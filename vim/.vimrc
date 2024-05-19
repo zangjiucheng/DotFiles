@@ -55,6 +55,7 @@ augroup END
 " Go to tab by number
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
+nnoremap <C-d> :tabc<CR>
 
 " Nerdcommenter Setup
 " Create default mappings
@@ -94,9 +95,10 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " Tagbar   Setup
 set tags=tags
 autocmd VimEnter * Tagbar
+nnoremap <C-n> :tabnew<CR>
 
 " Disable Copilot at startup
-:let g:copilot_enabled = 0
+:let g:copilot_enabled = 1
 
 " Compile and Run
 map <F5> :call CompileRunGcc()<CR>
