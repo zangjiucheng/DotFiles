@@ -1,50 +1,157 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# >>> Doom Emcas
-export PATH="/Users/jiucheng/.config/emacs/bin:$PATH"
-# <<< Doom Emacs End
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="agnoster"
 
-# >>> Brew Setup
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# <<< Brew End
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# >>> Bash Setting
-export CLICOLOR=1
-export LSCOLORS=ExGxFxdaCxDaDahbadeche
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of red dots.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+
+# Set up Zsh options
+setopt autocd
+setopt extended_glob
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Custom prompt colors
 autoload -U colors && colors
-PROMPT="%{$fg_bold[magenta]%}%n%{$fg_bold[yellow]%}λ%{$fg_bold[magenta]%}%m %{$fg_bold[green]%}%0~ %{$reset_color%}"
-alias g++20="g++ -std=c++20 -Wall -g"
+setopt PROMPT_SUBST
 
-#alias vim="vim -X"
-# <<< Bash End
+source $ZSH/oh-my-zsh.sh
 
-# >>> VIM >>>
-export EDITOR=vim
-export VISUAL="$EDITOR"
-# <<< VIM End <<<
+# Load LS_COLORS for GNU 'ls'
+# if [ -x "$(command -v gls)" ]; then
+#   alias ls='gls --color=auto'
+#   export LS_COLORS="\
+#     di=01;34:\
+#     ln=01;36:\
+#     so=01;35:\
+#     pi=01;33:\
+#     ex=01;32:\
+#     bd=01;33:\
+#     cd=01;33:\
+#     or=01;31:\
+#     mi=01;31:\
+#     *.tar=01;31:\
+#     *.gz=01;31:\
+#     *.zip=01;31:\
+#     *.jpg=01;35:\
+#     *.jpeg=01;35:\
+#     *.gif=01;35:\
+#     *.bmp=01;35:\
+#     *.png=01;35:\
+#     *.pdf=01;33:\
+#     *.doc=01;33:\
+#     *.docx=01;33:\
+#     *.xls=01;33:\
+#     *.xlsx=01;33:\
+#     "
+# fi
 
-# >>> MacTex Setup >>>
-export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
-# <<< MacTex End <<<
 
-# <<< Spicetify Setup
-export PATH=$PATH:/Users/jiucheng/.spicetify
-# >>> Spicetify End
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Volumes/DevU/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+#$$$$$$$$$$$$$$____USER CONFIGURATION____$$$$$$$$$$$$$$
+
+
+# Path to your custom alias file
+# source ~/.zsh_aliases
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
 else
-    if [ -f "/Volumes/DevU/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Volumes/DevU/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Volumes/DevU/opt/anaconda3/bin:$PATH"
-    fi
+  export EDITOR='mvim'
 fi
-unset __conda_setup
-# <<< conda initialize <<<
+
+
+# Aliases
+alias ll='ls -lah'
+alias gs='git status'
+alias la='ls -A'
+alias l='ls -CF'
+alias g++20="g++ -std=c++20 -Wall -g"
+alias neofetch="fastfetch"
+alias ezal="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=7"
+
+# Use GNU coreutils 'ls' on macOS
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+ # >>> Doom Emcas
+ export PATH="/Users/jiucheng/.config/emacs/bin:$PATH"
+ # <<< Doom Emacs End
+
+
+ # >>> Brew Setup
+ eval "$(/opt/homebrew/bin/brew shellenv)"
+ # <<< Brew End
+
 
 # >>> pyenv configuration
 export PYENV_ROOT="$HOME/.pyenv"
@@ -53,26 +160,52 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # <<< pyenv End
 
+
+# >>> VIM STUFF
+alias vim="vim -X"
+bindkey '\e' vi-cmd-mode
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+ export KEYTIMEOUT=8
+ function zle-line-init zle-keymap-select {
+   RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+   RPS2=$RPS1
+   zle reset-prompt
+ }
+zle -N zle-line-init
+zle -N zle-keymap-select
+export EDITOR=vim
+export VISUAL="$EDITOR"
+# <<< VIM End <<<
+
+
 # >>> Racket Setup
 export PATH="/Applications/Racket/bin:$PATH"
 # <<< Racket End
+
+
+# >>> MacTex Setup >>>
+export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
+# <<< MacTex End <<<
+
 
 # >>> MMIX Setup
 export PATH="/Users/jiucheng/Documents/MMIX:$PATH"
 # <<< MMIX End
 
+
+# <<< Spicetify Setup
+export PATH=$PATH:/Users/jiucheng/.spicetify
+# >>> Spicetify End
+
+
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 
 # >>> fzf Setup
 eval "$(fzf --zsh)"
 source ~/fzf-git.sh/fzf-git.sh
 export FZF_DEFAULT_OPTS='--height 60%'
-# <<< fzf End
-
-# >>> Alias for eza with bat
-alias ezal="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=2"
-
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
@@ -90,17 +223,11 @@ _fzf_comprun() {
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
-# <<< eza End
+# <<< fzf End
 
-##### <<< VIM STUFF
-bindkey '\e' vi-cmd-mode
-# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
-export KEYTIMEOUT=1
-function zle-line-init zle-keymap-select {
-  RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-  RPS2=$RPS1
-  zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-# >>> VIM END <<<
+
+# >>> Node Version Manager(NVM)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# <<< NVM End
